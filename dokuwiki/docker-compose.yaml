@@ -1,0 +1,11 @@
+version: '2'
+services:
+  dokuwiki:
+    image: docker.io/bitnami/dokuwiki:latest
+    user: root
+    container_name: dokuwiki
+    ports:
+      - '8080:8080'
+      - '8443:8443'
+    volumes:
+      - ./dokuwiki_data:/bitnami/dokuwiki

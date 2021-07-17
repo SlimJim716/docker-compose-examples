@@ -1,0 +1,15 @@
+#Ensure that ./config/filebrowser.db is created before running docker-compose
+#Replace <UID>:<GID> with info for your user
+
+
+services:
+  filebrowser:
+    image: filebrowser/filebrowser
+    container_name: filebrowser
+    user: <UID>:<GID>
+    volumes:
+      - ./files:/srv
+      - ./config/filebrowser.db:/database.db
+    ports:
+      - 80:80
+    restart: unless-stopped
